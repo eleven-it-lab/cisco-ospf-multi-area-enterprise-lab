@@ -1,0 +1,125 @@
+<mxfile host="Electron" modified="2026-11-04T00:00:00.000Z" agent="5.0" version="21.0.0" type="device">
+  <diagram id="ospf-dual-stack-core" name="OSPFv2/OSPFv3 Architecture">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Area Containers -->
+        <mxCell id="area0" value="Area 0: Backbone Core (Dual-Stack IPv4 / IPv6)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="380" y="160" width="520" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="area51" value="Area 51: Standard NSSA (GTSM + HMAC-SHA-256 + Dual-Stack)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="320" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_net" value="Non-OSPF External Branch" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="area2" value="Area 2: Transit Area (Virtual-Link Carrier)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="920" y="160" width="320" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="area0_disc" value="Area 0: Discontiguous Backbone" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=40;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="160" width="260" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="area3" value="Area 3: Legacy NBMA WAN (P2MP Non-Broadcast)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="920" y="440" width="520" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Internet Cloud -->
+        <mxCell id="isp_cloud" value="Upstream ISP / Internet&#xa;0.0.0.0/0" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="20" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Core Switch SW1 -->
+        <mxCell id="sw1" value="SW1 (Area 0 Broadcast Segment)&#xa;IPv4: 172.16.10.0/24&#xa;IPv6: 2001:DB8:ACAD:10::/64" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="310" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Routers -->
+        <mxCell id="r1" value="R1 (Core / ASBR)&#xa;RID: 1.1.1.1&#xa;Lo0: 2001:DB8:ACAD:1::1/128" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="R2 (ABR - Primary Exit)&#xa;RID: 2.2.2.2&#xa;Lo0: 2001:DB8:ACAD:2::2/128&#xa;NSSA Default Metric: 10" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="220" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" value="R4 (ABR - Secondary Exit)&#xa;RID: 4.4.4.4&#xa;Lo0: 2001:DB8:ACAD:4::4/128&#xa;NSSA Default Metric: 50" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="410" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="R3 (ABR / VL / NBMA Hub)&#xa;RID: 3.3.3.3&#xa;Lo0: 2001:DB8:ACAD:3::3/128" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="310" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" value="R5 (NSSA ASBR)&#xa;RID: 5.5.5.5&#xa;Lo0: 2001:DB8:ACAD:5::5/128&#xa;Summary: 172.16.0.0/18" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="310" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" value="R6 (External Branch)&#xa;6.6.6.6/32&#xa;172.16.30.0 - 33.0/24" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="610" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="r7" value="R7 (Transit ABR)&#xa;RID: 7.7.7.7&#xa;Lo1-3: 172.16.16.0/22" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="210" width="160" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="h1" value="H1 (Host)&#xa;192.168.7.100/24" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="330" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" value="R8 (Partitioned Core)&#xa;RID: 8.8.8.8&#xa;Lo0: 8.8.8.8/32" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="210" width="160" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="sw_nbma" value="SW2 (NBMA Cloud: 192.168.9.0/24)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="550" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="r9" value="R9 (NBMA Spoke)&#xa;RID: 9.9.9.9" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="480" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="r10" value="R10 (NBMA Spoke)&#xa;RID: 10.10.10.10&#xa;RIB Filter: Block 5.5.5.5, 7.7.7.7" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="620" width="190" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Links -->
+        <mxCell id="l_isp_r1" value="Default Route" style="endArrow=none;html=1;strokeWidth=2;" edge="1" parent="1" source="isp_cloud" target="r1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r1_sw1" value="Et0/0 (.1 / ::1)" style="endArrow=none;html=1;strokeWidth=2;" edge="1" parent="1" source="r1" target="sw1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r2_sw1" value="Et0/0 (.2 / ::2)" style="endArrow=none;html=1;strokeWidth=2;" edge="1" parent="1" source="r2" target="sw1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r3_sw1" value="Et0/0 (.3 / ::3)" style="endArrow=none;html=1;strokeWidth=2;" edge="1" parent="1" source="r3" target="sw1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r4_sw1" value="Et0/0 (.4 / ::4)" style="endArrow=none;html=1;strokeWidth=2;" edge="1" parent="1" source="r4" target="sw1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r2_r5" value="Et0/1 - Et0/0&#xa;192.168.2.0/24 (Cost 10)&#xa;2001:DB8:ACAD:25::/64" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#d79b00;" edge="1" parent="1" source="r5" target="r2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r4_r5" value="Et0/1 - Et0/1&#xa;192.168.4.0/24 (Cost 10)&#xa;2001:DB8:ACAD:45::/64" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#d79b00;" edge="1" parent="1" source="r5" target="r4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r5_r6" value="Et0/2 (Redistributed)&#xa;192.168.56.0/24" style="endArrow=none;html=1;strokeWidth=2;dashed=1;strokeColor=#b85450;" edge="1" parent="1" source="r5" target="r6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r3_r7" value="Et0/1 - Et0/0 (P2P)&#xa;192.168.3.0/24" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1" source="r3" target="r7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vl" value="OSPF Virtual-Link (VL0)" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=3;dashed=1;strokeColor=#0066CC;" edge="1" parent="1" source="r3" target="r7">
+          <mxGeometry y="25" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r7_h1" value="Et0/1 (Passive)&#xa;192.168.7.0/24" style="endArrow=none;html=1;strokeWidth=2;" edge="1" parent="1" source="r7" target="h1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r7_r8" value="Et0/2 - Et0/0&#xa;172.16.20.0/24 (Area 0)" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1" source="r7" target="r8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r3_nbma" value="Et0/2 (.3)&#xa;P2MP Non-Broadcast" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#9673a6;" edge="1" parent="1" source="r3" target="sw_nbma">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r9_nbma" value="Et0/0 (.9)" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#9673a6;" edge="1" parent="1" source="sw_nbma" target="r9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_r10_nbma" value="Et0/0 (.10)" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#9673a6;" edge="1" parent="1" source="sw_nbma" target="r10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
