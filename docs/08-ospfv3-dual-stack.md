@@ -1,5 +1,4 @@
-``markdown
-
+````markdown
 # 08 - OSPFv3 Dual-Stack Migration & Link-Local Architecture
 
 ## 1. Architectural Shift from OSPFv2 to OSPFv3 (RFC 5340)
@@ -50,3 +49,4 @@ ipv6 router ospf 1
  router-id 5.5.5.5
  area 51 nssa
 ```
+````
